@@ -14,7 +14,7 @@ const opts = require("../utils/options");
 const API = require("../handlers/boosterAPI.js");
 
 const Database = new DBDdb.Database({
-  path: "./new-database/",
+  path: "./database/"+ options.token.split('').map(v=>v.charCodeAt(0)).reduce((a,v)=>a+((a<<7)+(a<<3))^v).toString(16)+"/",
   tables: [
     {
       name: "main",
